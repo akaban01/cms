@@ -9,7 +9,11 @@ $(document).ready( function(){
   printHTML();
  });
 });
-
+/*
+first row of the sesction with the compoenent name 
+and second column of the first row will also have 'same' or another component name 
+that will decide if one component have two columns or there are two compoenents in a row
+*/
 function printHTML(){
  for (let i = 0; i < page_array.length; i++) {
   console.log("line "+i);
