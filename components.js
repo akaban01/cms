@@ -5,5 +5,8 @@ var row_end ="</div>";
 var col_start ="<div class='col-sm'>";
 var col_end ="</div>";
 
-var card_start ="<div class='card'><div class='card-body>";
+var card_start ="<div class='card'><div class='card-body'>";
 var card_end ="</div></div>";
+
+var jumbotron_start ="<div class='jumbotron'>";
+var jumbotron_end ="</div>";
