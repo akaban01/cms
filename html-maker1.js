@@ -1,5 +1,11 @@
 var page_array = [["[jumbotron]", "[jumbotron]"], ["#Welcome to the site", "![Welcome banner](http://daxushequ.com/data/out/24/img60426245.jpg)"], ["this site is all driven by a spreadsheet", ""], ["", ""], ["[card]", "[card]"], ["card heading", "![Welcome banner](http://daxushequ.com/data/out/24/img60426245.jpg)"], ["some text", ""],["",""]];
-
+$(document).ready( function(){
+    $.get(page_array_url, function(data){
+     console.log("Data: " + data);
+     page_array = JSON.parse(data);
+     printHTML();
+    });
+   });
 var currentComponentRow = 0;
 var componentRows = [];
 
@@ -139,4 +145,3 @@ function component_end(row, col) {
 
 }
 
-printHTML();
