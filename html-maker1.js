@@ -43,7 +43,7 @@ function printHTML() {
                 result += col_start;
                 result += component_start(componentRows[i],j);
                 result += row_start;
-                print_col_content(i,j)
+                print_col_content(i,j);
                 result += row_end;
                 result += component_end(componentRows[i],j);
                 result += col_end;
@@ -52,13 +52,13 @@ function printHTML() {
                 result += col_start;
                 result += component_start(componentRows[i],j);
                 result += row_start;
-                print_col_content(i,j)
+                print_col_content(i,j);
             }
             if (this_same && next_same) {
                 print_col_content(i,j);
             }
             if (this_same && next_different) {
-                print_col_content(i,j)
+                print_col_content(i,j);
                 result += row_end;
                 result += component_end(componentRows[i],j);
                 result += col_end;
