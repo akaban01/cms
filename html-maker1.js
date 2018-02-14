@@ -6,6 +6,8 @@ $(document).ready( function(){
      printHTML();
     });
    });
+
+var mdconverter = new showdown.Converter({tables: true});
 var currentComponentRow = 0;
 var componentRows = [];
 
@@ -65,6 +67,11 @@ function printHTML() {
         result += row_end + section_end;
     }
     $("#code").html(result);
+    $("img").addClass("img-fluid");
+    $("h1").addClass("display-4");
+    $("h2").addClass("display-4");
+    $("h3").addClass("display-5");
+    $("p").addClass("lead");
 }
 function print_col_content(i,j){
     if (getComponentsHTML(componentRows[i],j)!="") {
@@ -112,8 +119,8 @@ function setDeciders(row,col) {
 function getComponentsHTML(row, col) {
     var local_result = "";
     row++;
-    while (page_array.length-1 != row && page_array[row][col]!="" ) {
-        local_result += page_array[row][col] + "<br>";
+    while (page_array.length != row && page_array[row][col]!="" ) {
+        local_result += mdconverter.makeHtml( page_array[row][col]);
         row++;
     }
     return local_result;
