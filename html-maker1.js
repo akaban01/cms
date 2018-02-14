@@ -41,9 +41,7 @@ function printHTML() {
                 result += col_start;
                 result += component_start(componentRows[i],j);
                 result += row_start;
-                result += col_start;
-                result += getComponentsHTML(componentRows[i],j);
-                result += col_end;
+                print_col_content(i,j)
                 result += row_end;
                 result += component_end(componentRows[i],j);
                 result += col_end;
@@ -52,19 +50,13 @@ function printHTML() {
                 result += col_start;
                 result += component_start(componentRows[i],j);
                 result += row_start;
-                result += col_start;
-                result += getComponentsHTML(componentRows[i],j);
-                result += col_end;
+                print_col_content(i,j)
             }
             if (this_same && next_same) {
-                result += col_start;
-                result += getComponentsHTML(componentRows[i],j);
-                result += col_end;
+                print_col_content(i,j);
             }
             if (this_same && next_different) {
-                result += col_start;
-                result += getComponentsHTML(componentRows[i],j);
-                result += col_end;
+                print_col_content(i,j)
                 result += row_end;
                 result += component_end(componentRows[i],j);
                 result += col_end;
@@ -74,7 +66,13 @@ function printHTML() {
     }
     $("#code").html(result);
 }
-
+function print_col_content(i,j){
+    if (getComponentsHTML(componentRows[i],j)!="") {
+        result += col_start;
+        result += getComponentsHTML(componentRows[i],j);
+        result += col_end;
+    }
+}
 function setDeciders(row,col) {
 
     //first check if its the last column
@@ -141,7 +139,12 @@ function component_start(row, col) {
 }
 
 function component_end(row, col) {
+    if(this_same){
+        col--;
+        while (page_array[row][col]=="") {
+            col--;
+        }
+    }
     return eval(page_array[row][col].slice(1,-1)+"_end");
-
 }
 
