@@ -10,3 +10,6 @@ var card_end ="</div></div>";
 
 var jumbotron_start ="<div class='jumbotron'>";
 var jumbotron_end ="</div>";
+
+var nothing_start = "";
+var nothing_end = "";

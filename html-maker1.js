@@ -1,8 +1,8 @@
-var page_array = [["[jumbotron]", "[jumbotron]"], ["#Welcome to the site", "![Welcome banner](http://daxushequ.com/data/out/24/img60426245.jpg)"], ["this site is all driven by a spreadsheet", ""], ["", ""], ["[card]", "[card]"], ["card heading", "![Welcome banner](http://daxushequ.com/data/out/24/img60426245.jpg)"], ["some text", ""],["",""]];
+var page_array = [["[jumbotron]", ""], ["#Welcome here", "![Welcome banner](blank-img.jpg)"], ["this site is all driven by a spreadsheet <b>this is bold text</b>", ""], ["", ""], ["[card]", "[card]"], ["card heading", "![Welcome banner](blank-img.jpg)"], ["some text", ""],["",""], ["[nothing]", ""],["some text and a buttom [Let me take you to Google](https://www.google.com)", "second column"], ["[Let me take you to Google](https://www.google.com)", ""]];
 $(document).ready( function(){
     $.get(page_array_url, function(data){
      console.log("Data: " + data);
-     page_array = JSON.parse(data);
+     page_array = JSON.parse(data); //once url started working then uncomment this line.
      printHTML();
     });
    });
@@ -68,10 +68,11 @@ function printHTML() {
     }
     $("#code").html(result);
     $("img").addClass("img-fluid");
-    $("h1").addClass("display-4");
+    $("h1").addClass("display-3");
     $("h2").addClass("display-4");
     $("h3").addClass("display-5");
     $("p").addClass("lead");
+    $("a").addClass("btn btn-primary");
 }
 function print_col_content(i,j){
     if (getComponentsHTML(componentRows[i],j)!="") {
